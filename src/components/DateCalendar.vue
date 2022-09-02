@@ -498,7 +498,9 @@ const status = (
   }
   classObj[`${state.pre}-date`] = true;
   classObj[`${state.pre}-date-disabled`] =
-    (props.right && t < start.value) || props.disabledDate(time, format);
+    (props.right && t < start.value) ||
+    (props.left && t > end.value) ||
+    props.disabledDate(time, format);
   classObj[`${state.pre}-date-on`] =
     (props.left && t > start.value) || (props.right && t < end.value);
   classObj[`${state.pre}-date-selected`] = flag;
